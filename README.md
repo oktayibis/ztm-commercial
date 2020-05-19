@@ -1,6 +1,10 @@
 # ztm e-commercial application
+### Still developing ...
+
 This is project that building e-commerce website with Zero to master react course
 We will use context-api, firebase and some basic back-end frameworks with React and build full feature e-commercial website.
+
+
 
 # What we use:
  - ReactJS
