@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { ReactComponent as Logo } from "../../assets/original.svg";
 import "./header.styles.scss";
 import { auth } from "../../firebase/firebase.utils";
+import { connect } from "react-redux";
+
 export const Header = ({ currentUser }) => {
   const signOut = () => {
     auth
@@ -38,4 +40,9 @@ export const Header = ({ currentUser }) => {
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => ({
+  // This state means rootReducer
+  currentUser: state.user.currentUser,
+});
+
+export default connect(mapStateToProps)(Header); // We connect currentUser data in redux to Header
