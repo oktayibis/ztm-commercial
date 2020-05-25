@@ -8,6 +8,7 @@ import SignInAndSignOutPage from "./pages/sign-in-and-sign-out/sign-in-and-sign-
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
+
 function App(props) {
 
 	useEffect(() => {
@@ -23,7 +24,7 @@ function App(props) {
 				props.setCurrentUser(userAuth);
 			}
 		});
-	}, [props]);
+	}, []);
 	return (
 		<div>
 			<Header />

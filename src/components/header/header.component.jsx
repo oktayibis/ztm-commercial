@@ -4,8 +4,10 @@ import { ReactComponent as Logo } from "../../assets/original.svg";
 import "./header.styles.scss";
 import { auth } from "../../firebase/firebase.utils";
 import { connect } from "react-redux";
+import CartIcon from "../cart-icon/cart-icon.component";
+import CartDropdown from "../cart-dropdown/cart-dropdown.component";
 
-export const Header = ({ currentUser }) => {
+export const Header = ({ currentUser, hidden }) => {
   const signOut = () => {
     auth
       .signOut()
@@ -35,7 +37,9 @@ export const Header = ({ currentUser }) => {
             SIGN IN
           </Link>
         )}
+        <CartIcon />
       </div>
+      {!hidden && <CartDropdown />}
     </div>
   );
 };
@@ -43,6 +47,7 @@ export const Header = ({ currentUser }) => {
 const mapStateToProps = (state) => ({
   // This state means rootReducer
   currentUser: state.user.currentUser,
+  hidden: state.cart.hidden,
 });
 
 export default connect(mapStateToProps)(Header); // We connect currentUser data in redux to Header
